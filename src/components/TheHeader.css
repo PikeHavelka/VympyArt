@@ -1,0 +1,83 @@
+header {
+    display: flex;
+        display: -webkit-box;
+        /* Safari, Chrome, iOS, Android */
+        display: -moz-box;
+        /* Firefox */
+        display: -ms-flexbox;
+        /* IE 10 */
+        display: -webkit-flex;
+        /* Opera */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+        -webkit-flex-direction: column;
+        /* Safari, Chrome, iOS, Android */
+        -ms-flex-direction: column;
+        /* IE 10 */
+        -moz-flex-direction: column;
+        /* Firefox */
+    height: 100vh;
+    text-align: center;
+}
+
+header img {
+    max-width: 45%;
+    height: auto;
+}
+
+.the-artist-name {
+    margin-bottom: 3rem;
+}
+
+.social-icons {
+    display: flex;
+        display: -webkit-box;
+        /* Safari, Chrome, iOS, Android */
+        display: -moz-box;
+        /* Firefox */
+        display: -ms-flexbox;
+        /* IE 10 */
+        display: -webkit-flex;
+        /* Opera */
+    flex-direction: row;
+        -webkit-flex-direction: row;
+        /* Safari, Chrome, iOS, Android */
+        -ms-flex-direction: row;
+        /* IE 10 */
+        -moz-flex-direction: column;
+        /* Firefox */
+    gap: 2rem;
+}
+
+.one-icon img {
+    max-width: 70%;
+    height: auto;
+    transition: all .2s ease-in-out;
+        -webkit-transition: all .2s ease-in-out;
+        /* Safari, Chrome, iOS, Android */
+        -moz-transition: all .2s ease-in-out;
+        /* Forefox */
+        -o-transition: all .2s ease-in-out;
+        /* Opera */
+}
+
+.one-icon img:hover {
+    cursor: pointer;
+    filter: grayscale(100%);
+        -webkit-filter: grayscale(100%);
+        /* Safari, Chrome, iOS, Android */
+    transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        /* Safari, Chrome, iOS, Android */
+        -moz-transform: scale(1.1);
+        /* Forefox */
+}
+
+.background-video {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+}
+

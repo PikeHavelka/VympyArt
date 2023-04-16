@@ -1,0 +1,23 @@
+nav {
+    margin-top: 3rem;
+}
+
+nav ul {
+    display: flex;
+    gap: 3rem;
+
+    list-style: none;
+}
+
+nav a {
+    display: block;
+    text-shadow: 0 0 1px black;
+    box-shadow: 0 0 3px black;
+    border-radius: 5px;
+
+    text-decoration: none;
+
+    width: 7rem;
+    height: 2rem;
+    line-height: 2rem;
+}

@@ -1,0 +1,22 @@
+footer {
+    margin-top: 1rem;
+}
+
+.info-about-creators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+        -webkit-flex-direction: column;
+        /* Safari, Chrome, iOS, Android */
+        -ms-flex-direction: column;
+        /* IE 10 */
+        -moz-flex-direction: column;
+        /* Firefox */
+
+    margin-top: .5rem;
+}
+
+.info-about-creators a {
+    text-decoration: none;
+}
