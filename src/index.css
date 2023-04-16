@@ -1,5 +1,21 @@
-body {
+:root {
+    --background-body: #f1f1f1;
+}
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: inherit;
+}
+
+body {
     box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+
+    background-color: var(--background-body);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
