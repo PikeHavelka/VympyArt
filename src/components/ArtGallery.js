@@ -1,78 +1,31 @@
 import "./ArtGallery.css"
+import ArtGalleryArtworks from "./ArtGalleryArtworks"
+import ArtGalleryIllustrations from "./ArtGalleryIllustrations"
 import { useState, useEffect, forwardRef, useReducer } from "react"
 import { ImCircleLeft, ImCircleRight, ImCross } from "react-icons/im"
 
-// Store all ArtImages from folder images
-// function importAll(path) {
-//   return Object.values(
-//     require.context("../assets/images/" + path, false, /\.(png|jpe?g|svg)$/).keys()
-//       .reduce((images, item) => {
-//         images[item.replace("./", "")] = require("../assets/images/" + path + "/" + item)
-//         return images
-//       }, {})
-//   )
-// }
-
-// const images = importAll("")
-// const dwarfImages = importAll("dwarfs")
-// const animalImages = importAll("animals")
-// const girlsImages = importAll("girls")
-// const otherImages = importAll("others")
-
+// Store all ArtAssets from folder images
 function importAll(r) {
-  let images = []
+  let assets = []
   r.keys().forEach((item, index) => {
-    images[index] = r(item)
+    assets[index] = r(item)
   })
-  return images
+  return assets
 }
 
-const images = importAll(require.context("../assets/images", true, /\.(png|jpe?g|svg)$/))
-/**************************************************/
+const illustrations = importAll(require.context("../assets/Illustrations", false, /\.(png|jpe?g|svg)$/))
 
-const dwarfImages = importAll(require.context("../assets/images/dwarfs", false, /\.(png|jpe?g|svg)$/))
-
-const animalImages = importAll(require.context("../assets/images/animals", false, /\.(png|jpe?g|svg)$/))
-
-const girlsImages = importAll(require.context("../assets/images/girls", false, /\.(png|jpe?g|svg)$/))
-
-const otherImages = importAll(require.context("../assets/images/others", false, /\.(png|jpe?g|svg)$/))
-
-
+// Reducer settings
 const ACTIONS = {
-  DWARFS: "dwarfs",
-  GIRLS: "girls",
-  ANIMALS: "animals",
-  OTHERS: "others",
-  RESET: "reset"
+  ILLUSTRATIONS: "Illustrations"
 }
 
 const reducer = (state, action) => {
   switch (action.type){
-    case ACTIONS.DWARFS:
+    case ACTIONS.ILLUSTRATIONS:
       return {
-        artImages: dwarfImages,
-        notificationContent: "Dwarfs"
-      }
-    case ACTIONS.GIRLS:
-      return {
-        artImages: girlsImages,
-        notificationContent: "Girls"
-      }
-    case ACTIONS.ANIMALS:
-      return {
-        artImages: animalImages,
-        notificationContent: "Animals"
-      }
-    case ACTIONS.OTHERS:
-      return {
-        artImages: otherImages,
-        notificationContent: "Others"
-      }
-    case ACTIONS.RESET:
-      return {
-        artImages: images,
-        notificationContent: ""
+        artAssets: illustrations,
+        notificationContent: "Illustrations"
       }
     default:
       return state
@@ -80,41 +33,30 @@ const reducer = (state, action) => {
 }
 
 const defaultState = {
-  artImages: images,
-  notificationContent: ""
+  artAssets: illustrations,
+  notificationContent: "Illustrations"
 }
 
 /**************************************************/
+// Component start
 const ArtGallery = forwardRef ((props, ref) => {
   const [show, setShow] = useState(false)
   const [popImg, setPopImg] = useState()
-  const [movieIndex, setMovieIndex] = useState()
+  const [imageIndex, setImageIndex] = useState()
   const [state, dispatch] = useReducer(reducer, defaultState)
 
-  const handleDwarfs = () => {
-    dispatch({ type: ACTIONS.DWARFS })
+  // Btns for imgs change on page
+  const handleClick = (type) => {
+    return () => {
+      dispatch({ type: type })
+    }
   }
 
-  const handleGirls = () => {
-    dispatch({ type: ACTIONS.GIRLS})
-  }
-
-  const handleAnimals = () => {
-    dispatch({ type: ACTIONS.ANIMALS})
-  }
-
-  const handleOthers = () => {
-    dispatch({ type: ACTIONS.OTHERS})
-  }
-  const handleReset = () => {
-    dispatch({ type: ACTIONS.RESET})
-  }
-
-
-  const popUpImage = (image, oneMovieIndex) => {
+  // Open popUpImg
+  const popUpImage = (image, oneImageIndex) => {
     setPopImg(image)
     setShow(true)
-    setMovieIndex(oneMovieIndex)
+    setImageIndex(oneImageIndex)
   }
 
   // Close popUpImg
@@ -124,26 +66,26 @@ const ArtGallery = forwardRef ((props, ref) => {
 
   // Move with popUpImg - left
   const previousImage = () => {
-    let newIndex = movieIndex - 1
+    let newIndex = imageIndex - 1
 
     if (newIndex < 0) {
-      newIndex = state.artImages.length - 1
+      newIndex = illustrations.length - 1
     }
     
-    setPopImg(state.artImages[newIndex])
-    setMovieIndex(newIndex)
+    setPopImg(illustrations[newIndex])
+    setImageIndex(newIndex)
   }
 
   // Move with popUpImg - right
   const nextImage = () => {
-    let newIndex = movieIndex + 1
+    let newIndex = imageIndex + 1
 
-    if (newIndex === state.artImages.length){
+    if (newIndex > illustrations.length - 1){
       newIndex = 0
     }
 
-    setPopImg(state.artImages[newIndex])
-    setMovieIndex(newIndex)
+    setPopImg(illustrations[newIndex])
+    setImageIndex(newIndex)
   }
 
   // When popUpImg is open, you can move and close them
@@ -163,7 +105,7 @@ const ArtGallery = forwardRef ((props, ref) => {
     return () => {
       document.removeEventListener("keydown", handleKeyDown)
     }
-  }, [movieIndex])
+  }, [imageIndex])
 
   return (
     <section ref={ref} className="art-gallery">
@@ -178,25 +120,29 @@ const ArtGallery = forwardRef ((props, ref) => {
             </div>
         </div>
 
-        <div className="btn-img-style">
-          <button onClick={handleGirls}>Girls</button>
-          <button onClick={handleDwarfs}>Dwarfs</button>
-          <button onClick={handleAnimals}>Animals</button>
-          <button onClick={handleOthers}>Others</button>
-          <button onClick={handleReset}>Reset</button>
+        <div className="btn-img-category">
+          <button onClick={handleClick}>Artworks</button>
+          <button onClick={handleClick(ACTIONS.ILLUSTRATIONS)}>Illustrations</button>
+          <button onClick={handleClick}>Animations</button>
         </div>
 
-        <h1>{state.notificationContent}</h1>
+        <div className="images-notification">
+          <h1>{state.notificationContent}</h1>
+        </div>
+        
+      {/* <ArtGalleryArtworks show={show} popImg={popImg} nextImgae={nextImage} peviousImage={previousImage} closePopImage={closePopImage}/> */}
+      
+      <ArtGalleryIllustrations />
 
       <div className="all-images">
-        {state.artImages.map((oneMovie, movieIndex) => {
+        {state.artAssets.map((oneImage, imageIndex) => {
 
-            return <div className="one-image" key={movieIndex}>
+            return <div className="one-image" key={imageIndex}>
               <img 
                 className={show ? "clicked" : ""} 
-                src={state.artImages[movieIndex]} 
+                src={state.artAssets[imageIndex]} 
                 alt="Vympy Art" 
-                onClick={() => popUpImage(state.artImages[movieIndex], movieIndex)} 
+                onClick={() => popUpImage(state.artAssets[imageIndex], imageIndex)} 
               />
             </div>
         })}

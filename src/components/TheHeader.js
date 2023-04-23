@@ -1,21 +1,22 @@
 import "./TheHeader.css"
-import penguinLogo from "../assets/icons/penguin.png"
+import penguinLogoDark from "../assets/icons/penguinBlack.png"
+import penguinLogoLight from "../assets/icons/penguireversn.png"
 import iconsData from "../iconsData"
 import NavBar from "./NavigationBar"
-import video from "../assets/videos/background-video.mp4"
+import TheTheme from "./TheTheme"
+import { useState } from "react"
 
-function TheHeader({ scrollToGallery }) {
+function TheHeader({ scrollToGallery, scrollToContact }) {
+  const [showThemeIcon, setShowThemeIcon] = useState(false)
+
   return (
     <header>
-      <NavBar scrollToGallery={scrollToGallery}/>
+      <TheTheme setShowThemeIcon={setShowThemeIcon} showThemeIcon={showThemeIcon}/>
 
-      {/* <video
-        src={video} autoPlay loop muted playsInline
-        className="background-video">
-      </video> */}
+      <NavBar scrollToGallery={scrollToGallery} scrollToContact={scrollToContact} />
 
       <div className="penguin-logo">
-        <img src={penguinLogo} alt="" />
+        {showThemeIcon ? <img src={penguinLogoLight} alt="" /> : <img src={penguinLogoDark} alt="" /> }
       </div>
 
       <div className="the-artist-name">
@@ -26,7 +27,7 @@ function TheHeader({ scrollToGallery }) {
       <div className="social-icons">
         {iconsData.map( (oneIcon) => {
           const {id, icon, link} = oneIcon
-
+          
           return <div className="one-icon" key={id}>
             <a href={link}>
               <img src={icon} alt="The Artict social sites" />

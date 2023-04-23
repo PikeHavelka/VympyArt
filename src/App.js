@@ -5,6 +5,7 @@ import { useRef } from "react"
 
 function App() {
   const artGalleryRef = useRef(null)
+  const TheContactRef = useRef(null)
 
   // Scroll To Gallery from NavigationBar
     const scrollToGallery = (e) => {
@@ -16,10 +17,20 @@ function App() {
     })
   }
 
+  // Scroll To Contact from NavigationBar
+  const scrollToContact = (e) => {
+    e.preventDefault()
+    
+    window.scrollTo({
+      top:TheContactRef.current.offsetTop,
+      behavior: "smooth"
+    })
+  }
+
   return (
     <div className="container">
-      <TheHeader scrollToGallery={scrollToGallery}/>
-      <TheMain ref={artGalleryRef} />
+      <TheHeader scrollToGallery={scrollToGallery} scrollToContact={scrollToContact} />
+      <TheMain artGalleryRef={artGalleryRef} TheContactRef={TheContactRef} />
       <TheFooter />
     </div>
   )

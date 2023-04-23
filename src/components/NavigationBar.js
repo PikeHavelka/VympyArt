@@ -1,20 +1,26 @@
 import "./NavigationBar.css"
 
-function NavigationBar({ scrollToGallery}) {
+function NavigationBar({ scrollToGallery, scrollToContact }) {
 
   return (
     <nav>
       <ul>
         <li>
-          <a href="" onClick={(e) => scrollToGallery(e)}>Gallery</a>
+          <a href="" onClick={(e) => scrollToGallery(e)}>
+            Gallery
+          </a>
         </li>
 
         <li>
-          <a href="">Contact</a>
+          <a href="">
+            Commission
+          </a>
         </li>
 
         <li>
-          <a href="">NEVÍM</a>
+          <a href="" onClick={(e) => scrollToContact(e)}>
+            Contact
+          </a>
         </li>
       </ul>
     </nav>

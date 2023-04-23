@@ -1,0 +1,27 @@
+.theme-btns {
+  margin-top: 1rem;
+}
+
+.theme-btns button {
+  position: relative;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.sun-icon,
+.moon-icon {
+  display: block;
+  position: absolute;
+  transform: translate(-50%, -50%);
+
+  height: 3rem;
+  width: 3rem;
+
+  color: var(--theme-icon);
+}
+
+.hide-btn {
+  opacity: 0;
+  pointer-events: none;
+}

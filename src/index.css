@@ -1,21 +1,35 @@
 :root {
-    --background-body: #f1f1f1;
+  --background-body: #e9e9e9;
+  --font-body: #373737;
+  --theme-icon: #373737;
+  --borders: #373737;
+  --shadows: #373737;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+body[data-theme="dark"] {
+  --background-body: #131313;
+  --font-body: #e9e9e9;
+  --theme-icon: #e9e9e9;
+  --borders: #e9e9e9;
+  --shadows: #e9e9e9;
 }
 
 body {
-    box-sizing: border-box;
-    font-family: 'Josefin Sans', sans-serif;
+  box-sizing: border-box;
+  font-family: 'Lora', serif;
+  letter-spacing: 2px;
+  
+  color: var(--font-body);
+  background-color: var(--background-body);
+}
 
-    background-color: var(--background-body);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }

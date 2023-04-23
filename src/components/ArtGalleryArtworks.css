@@ -1,0 +1,192 @@
+.artworks {
+  display: flex;
+    display: -webkit-box;
+    /* Safari, Chrome, iOS, Android */
+    display: -moz-box;
+    /* Firefox */
+    display: -ms-flexbox;
+    /* IE 10 */
+    display: -webkit-flex;
+    /* Opera */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Videos */
+.one-video-artwork video {
+  max-width: 300px;
+  max-height: 200px;
+}
+
+.video-artworks {
+  padding: 0 1rem;
+
+  columns: 4;
+    -webkit-columns: 4;
+    /* Safari. iOS, Android */
+    -moz-columns: 4;
+    /* FireFox */
+    column-gap: .5rem;
+}
+
+/* Images */
+.image-artworks {
+  padding: 0 1rem;
+
+  columns: 4;
+    -webkit-columns: 4;
+    /* Safari. iOS, Android */
+    -moz-columns: 4;
+    /* FireFox */
+    column-gap: .5rem;
+}
+
+.one-image-artwork {
+  margin-bottom: .5rem;
+  max-width: 300px;
+  height: 200px;
+  overflow: hidden;
+  border: 3px solid black;
+}
+
+.one-image-artwork img {
+  max-width: 300px;
+  height: auto;
+
+  cursor: pointer;
+
+  transition: all 100ms ease-in-out;
+}
+
+.one-image-artwork img:hover {
+  transform: scale(1.15);
+}
+
+
+
+/* Pop Up Images */
+.show-pop-image {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.753);
+  z-index: 1;
+
+  top: 0;
+  left: 0;
+
+  min-width: 100%;
+  min-height: 100%;
+
+  display: flex;
+    display: -webkit-box;
+    /* Safari, Chrome, iOS, Android */
+    display: -moz-box;
+    /* Firefox */
+    display: -ms-flexbox;
+    /* IE 10 */
+    display: -webkit-flex;
+    /* Opera */
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.hide-pop-image {
+  display: none;
+}
+
+.show-pop-image img {
+  height: 95vh;
+  margin: 0 auto;
+  image-rendering: crisp-edges;
+
+  animation: imgScale .7s ease forwards;
+  -webkit-animation: imgScale .7s ease forwards;
+  /* Safari, Chrome, iOS, Android */
+  -moz-animation: imgScale .7s ease forwards;
+  /* Firefox */
+}
+
+img.clicked:hover {
+  opacity: 1;
+  transition: all .0001s linear;
+  -webkit-transition: all .0001s linear;
+  /* Chrome. Safari, iOS, Android */
+  -moz-transition: all .0001s linear;
+  /* Firefox */
+  -o-transition: all .0001s linear;
+  /* Opera */
+}
+
+.icons-container {
+  position: absolute;
+  bottom: 3%;
+
+  display: flex;
+  display: -webkit-box;
+  /* Safari, Chrome, iOS, Android */
+  display: -moz-box;
+  /* Firefox */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: -webkit-flex;
+  /* Opera */
+  align-items: center;
+  gap: .3rem;
+  color: #000;
+}
+
+.icons-container>* {
+  font-size: 2rem;
+  cursor: pointer;
+  animation: iconsShow .9s linear;
+  -webkit-animation: iconsShow .9s linear;
+  /* Safari, Chrome, iOS, Android */
+  -moz-animation: iconsShow .9s linear;
+  /* Firefox */
+}
+
+.icons-container>*:hover {
+  opacity: .6;
+}
+
+.icons-container .cross {
+  font-size: 1.8rem;
+}
+
+.images-notification {
+  margin-top: .5rem;
+}
+
+@keyframes imgScale {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    /* Safari, Chrome, iOS, Android */
+    -moz-transform: scale(0);
+    /* Firefox */
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    /* Safari, Chrome, iOS, Android */
+    -moz-transform: scale(1);
+    /* Firefox */
+  }
+}
+
+@keyframes iconsShow {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
