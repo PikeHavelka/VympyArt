@@ -1,14 +1,16 @@
 import "./TheMain.css"
 import ArtGallery from "./ArtGallery"
-import { forwardRef } from "react"
 import TheContact from "./TheContact"
+import TheCommission from "./TheCommission"
+import { forwardRef } from "react"
 
-const TheMain = forwardRef((props, ref) => {
+const TheMain = forwardRef ((props, ref) => {
 
   return (
     <main>
       <ArtGallery ref={props.artGalleryRef}/>
-      <TheContact ref={props.TheContactRef}/>
+      <TheCommission ref={props.theCommissionRef}/>
+      <TheContact ref={props.theContactRef}/>
     </main>
   )
 })

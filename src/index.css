@@ -18,9 +18,13 @@ body {
   box-sizing: border-box;
   font-family: 'Lora', serif;
   letter-spacing: 2px;
-  
+
   color: var(--font-body);
   background-color: var(--background-body);
+
+  transition: 
+    color 500ms ease-in-out,
+    background-color 200ms ease-in-out;
 }
 
 * {

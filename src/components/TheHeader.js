@@ -6,14 +6,14 @@ import NavBar from "./NavigationBar"
 import TheTheme from "./TheTheme"
 import { useState } from "react"
 
-function TheHeader({ scrollToGallery, scrollToContact }) {
+function TheHeader({ scrollToGallery, scrollToContact, scrollToCommission }) {
   const [showThemeIcon, setShowThemeIcon] = useState(false)
 
   return (
     <header>
       <TheTheme setShowThemeIcon={setShowThemeIcon} showThemeIcon={showThemeIcon}/>
 
-      <NavBar scrollToGallery={scrollToGallery} scrollToContact={scrollToContact} />
+      <NavBar scrollToGallery={scrollToGallery} scrollToContact={scrollToContact} scrollToCommission={scrollToCommission} />
 
       <div className="penguin-logo">
         {showThemeIcon ? <img src={penguinLogoLight} alt="" /> : <img src={penguinLogoDark} alt="" /> }

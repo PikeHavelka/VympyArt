@@ -9,74 +9,20 @@
     display: -webkit-flex;
     /* Opera */
   align-items: center;
+
   flex-direction: column;
+    -webkit-flex-direction: column;
+    /* Safari, Chrome, iOS, Android */
+    -ms-flex-direction: column;
+    /* IE 10 */
+    -moz-flex-direction: column;
+    /* Firefox */
+
   padding-top: 1rem;
 }
 
-.btn-img-category > * {
-  cursor: pointer;
-
-  margin-right: 1rem;
-  padding: .3rem .8rem;
-
-  color: var(--font-body);
-  background-color: var(--background-body);
-  border-radius: 10px;
-}
-
-.btn-img-category > *:last-child{
-  margin-right: 0;
-}
-
-.all-images {
-  position: relative;
-  padding: 0 1rem;
-
-  columns: 6;
-    -webkit-columns: 6;
-    /* Safari. iOS, Android */
-    -moz-columns: 6;
-    /* FireFox */
-    column-gap: 1rem;
-}
-
-.one-image img {
-  max-width: 100%;
-  height: auto;
-
-  margin-top: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 0 3px var(--shadows);
-    -webkit-box-shadow: 0 0 3px var(--shadows);
-    /* Chrome. Safari, iOS, Android */
-    -moz-box-shadow: 0 0 3px var(--shadows);
-    /* Firefox */
-
-  transition: all .2s ease-in-out;
-    -webkit-transition: all .2s ease-in-out;
-    /* Chrome. Safari, iOS, Android */
-    -moz-transition: all .2s ease-in-out;
-    /* Firefox */
-    -o-transition: all .2s ease-in-out;
-    /* Opera */
-}
-
-.one-image img:hover {
-  cursor: pointer;
-  opacity: .4;
-}
-
-.show-pop-image {
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.753);
-  z-index: 1;
-
-  top: 0;
-  left: 0;
-
-  min-width: 100%;
-  min-height: 100%;
-
+/* Buttons settings */
+.btn-category {
   display: flex;
     display: -webkit-box;
     /* Safari, Chrome, iOS, Android */
@@ -89,7 +35,99 @@
   justify-content: center;
   align-items: center;
 
+  flex-direction: column;
+    -webkit-flex-direction: column;
+    /* Safari, Chrome, iOS, Android */
+    -ms-flex-direction: column;
+    /* IE 10 */
+    -moz-flex-direction: column;
+    /* Firefox */
+
   overflow: hidden;
+
+  height: 25rem;
+  min-width: 100%;
+}
+
+.btn-category > * {
+  min-height: 33%;
+  width: 100%;
+
+  cursor: pointer;
+  border: none;
+
+  color: black;
+  letter-spacing: 2px;
+  font-size: 5vh;
+  font-family: 'Lora', serif;
+  
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 white;
+  
+  background: url("../assets/icons/vympyIllustrations.jpg") 0 -200px no-repeat;
+  
+  transition: all 250ms ease-in-out;
+    -webkit-transition: all 250ms ease-in-out;
+    /* Safari, Chrome, iOS, Android */
+    -moz-transition: all 250ms ease-in-out;
+    /* Forefox */
+    -o-transition: all 250ms ease-in-out;
+    /* Opera */
+}
+
+.btn-category > button:nth-child(1) {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  background: url("../assets/icons/vympyArtworks.jpg") 0 -200px no-repeat;
+}
+
+.btn-category > button:nth-child(3) {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  background: url("../assets/icons/vympyAnimations.jpg") 0 -200px no-repeat;
+}
+
+.btn-category > *:hover,
+.btn-category > *:focus {
+  min-height: 75%
+}
+
+.btn-category > button:nth-child(1):hover,
+.btn-category > button:nth-child(1):focus {
+  transform: translateY(20%);
+}
+
+.btn-category > button:nth-child(3):hover,
+.btn-category > button:nth-child(3):focus {
+  transform: translateY(-20%);
+}
+
+/* PopUpImg settings */
+.show-pop-image {
+  display: flex;
+    display: -webkit-box;
+    /* Safari, Chrome, iOS, Android */
+    display: -moz-box;
+    /* Firefox */
+    display: -ms-flexbox;
+    /* IE 10 */
+    display: -webkit-flex;
+    /* Opera */
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.753);
 }
 
 .hide-pop-image {
@@ -108,8 +146,10 @@
     /* Firefox */
 }
 
-img.clicked:hover {
+img.clicked:hover,
+img.clicked:focus {
   opacity: 1;
+
   transition: all .0001s linear;
     -webkit-transition: all .0001s linear;
     /* Chrome. Safari, iOS, Android */
@@ -117,12 +157,9 @@ img.clicked:hover {
     /* Firefox */
     -o-transition: all .0001s linear;
     /* Opera */
-    }
+}
 
 .icons-container {
-  position: absolute;
-  bottom: 3%;
-
   display: flex;
     display: -webkit-box;
     /* Safari, Chrome, iOS, Android */
@@ -134,12 +171,18 @@ img.clicked:hover {
     /* Opera */
   align-items: center;
   gap: .3rem;
+
+  position: absolute;
+  bottom: 3%;
+
   color: #000;
 }
 
 .icons-container > * {
   font-size: 2rem;
   cursor: pointer;
+  
+
   animation: iconsShow .9s linear;
     -webkit-animation: iconsShow .9s linear;
     /* Safari, Chrome, iOS, Android */
@@ -147,7 +190,8 @@ img.clicked:hover {
     /* Firefox */
 }
 
-.icons-container > *:hover {
+.icons-container > *:hover,
+.icons-container > *:focus {
   opacity: .6;
 }
 
@@ -155,9 +199,15 @@ img.clicked:hover {
   font-size: 1.8rem;
 }
 
+.notification h1 {
+  margin: 1rem 0;
+}
+
+/* Animations */
 @keyframes imgScale {
   0% {
     opacity: 0;
+
     transform: scale(0);
       -webkit-transform: scale(0);
       /* Safari, Chrome, iOS, Android */
@@ -167,6 +217,7 @@ img.clicked:hover {
 
   100% {
     opacity: 1;
+
     transform: scale(1);
       -webkit-transform: scale(1);
       /* Safari, Chrome, iOS, Android */
@@ -187,52 +238,122 @@ img.clicked:hover {
   }
 }
 
+/* Other screen sizes */
 @media screen and (max-width: 1200px) {
-  .all-images {
-    columns: 5;
-    -webkit-columns: 5;
-    /* Safari. iOS, Android */
-    -moz-columns: 5;
-    /* FireFox */
-    }
-}
+  .show-pop-image img {
+    height: 80%;
+  }
 
-@media screen and (max-width: 1000px) {
-  .all-images {
-    columns: 4;
-    -webkit-columns: 4;
-    /* Safari. iOS, Android */
-    -moz-columns: 4;
-    /* FireFox */
+  .icons-container {
+    bottom: 10.5%;
   }
 }
 
-@media screen and (max-width: 800px) {
-  .all-images {
-    columns: 3;
-    -webkit-columns: 3;
-    /* Safari. iOS, Android */
-    -moz-columns: 3;
-    /* FireFox */
+@media screen and (max-width: 1000px) {
+  .show-pop-image img {
+    height: 60%;
+  }
+
+  .icons-container {
+    bottom: 20.5%;
+  }
+
+  .btn-category > * {
+    min-height: 36%;
+  }
+
+  .btn-category > *:hover,
+  .btn-category > *:focus {
+    min-height: 45%
+  }
+
+  .btn-category > button:nth-child(1):hover,
+  .btn-category > button:nth-child(1):focus {
+    transform: translateY(20%);
+  }
+
+  .btn-category > button:nth-child(3):hover,
+  .btn-category > button:nth-child(3):focus {
+    transform: translateY(-20%);
+  }
+}
+
+@media screen and (max-width: 655px) {
+  .btn-category > * {
+    font-size: 3.5vh;
+  }
+
+  .btn-category > * {
+    min-height: 24%;
+  }
+
+  .btn-category > *:hover,
+  .btn-category > *:focus {
+    min-height: 37%
+  }
+
+  .btn-category > button:nth-child(1):hover,
+  .btn-category > button:nth-child(1):focus {
+    transform: translateY(20%);
+  }
+
+  .btn-category > button:nth-child(3):hover,
+  .btn-category > button:nth-child(3):focus {
+    transform: translateY(-20%);
   }
 }
 
 @media screen and (max-width: 600px) {
-  .all-images {
-    columns: 2;
-    -webkit-columns: 2;
-    /* Safari. iOS, Android */
-    -moz-columns: 2;
-    /* FireFox */
+  .show-pop-image img {
+    height: 50%;
+  }
+
+  .icons-container {
+    bottom: 25.5%;
   }
 }
 
-@media screen and (max-width: 400px) {
-  .all-images {
-    columns: 1;
-    -webkit-columns: 1;
-    /* Safari. iOS, Android */
-    -moz-columns: 1;
-    /* FireFox */
+@media screen and (max-width: 550px) {
+  .show-pop-image img {
+    height: 40%;
+  }
+
+  .icons-container {
+    bottom: 30.5%;
+  }
+}
+
+@media screen and (max-width: 455px) {
+  .btn-category > * {
+    font-size: 3vh;
+  }
+
+  .btn-category > * {
+    min-height: 25%;
+}
+
+  .btn-category > *:hover,
+  .btn-category > *:focus {
+    min-height: 30%
+  }
+
+  .btn-category > button:nth-child(1):hover,
+  .btn-category > button:nth-child(1):focus {
+    transform: translateY(10%);
+  }
+
+  .btn-category > button:nth-child(3):hover,
+  .btn-category > button:nth-child(3):focus {
+    transform: translateY(-10%);
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .show-pop-image img {
+    height: 30%;
+  }
+
+  .icons-container {
+    bottom: 35.5%;
   }
 }

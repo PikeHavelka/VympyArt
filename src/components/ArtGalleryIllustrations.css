@@ -1,0 +1,89 @@
+.image-illustrations {
+  position: relative;
+  padding: 0 1rem;
+
+  columns: 6;
+    -webkit-columns: 6;
+    /* Safari. iOS, Android */
+    -moz-columns: 6;
+    /* FireFox */
+  column-gap: 1rem;
+}
+
+.one-image-illustration img {
+  max-width: 100%;
+  height: auto;
+
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 3px var(--shadows);
+    -webkit-box-shadow: 0 0 3px var(--shadows);
+    /* Chrome. Safari, iOS, Android */
+    -moz-box-shadow: 0 0 3px var(--shadows);
+    /* Firefox */
+
+  transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    /* Chrome. Safari, iOS, Android */
+    -moz-transition: all .2s ease-in-out;
+    /* Firefox */
+    -o-transition: all .2s ease-in-out;
+    /* Opera */
+}
+
+.one-image-illustration img:hover, 
+.one-image-illustration img:focus {
+  cursor: pointer;
+  opacity: .4;
+}
+
+/* Other screen sizes */
+@media screen and (max-width: 1200px) {
+  .image-illustrations {
+    columns: 5;
+      -webkit-columns: 5;
+      /* Safari. iOS, Android */
+      -moz-columns: 5;
+      /* FireFox */
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .image-illustrations {
+    columns: 4;
+      -webkit-columns: 4;
+      /* Safari. iOS, Android */
+      -moz-columns: 4;
+      /* FireFox */
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .image-illustrations {
+    columns: 3;
+      -webkit-columns: 3;
+      /* Safari. iOS, Android */
+      -moz-columns: 3;
+      /* FireFox */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .image-illustrations {
+    columns: 2;
+      -webkit-columns: 2;
+      /* Safari. iOS, Android */
+      -moz-columns: 2;
+      /* FireFox */
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .image-illustrations {
+    columns: 1;
+      -webkit-columns: 1;
+      /* Safari. iOS, Android */
+      -moz-columns: 1;
+      /* FireFox */
+  }
+}

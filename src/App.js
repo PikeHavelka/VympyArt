@@ -5,9 +5,10 @@ import { useRef } from "react"
 
 function App() {
   const artGalleryRef = useRef(null)
-  const TheContactRef = useRef(null)
+  const theCommissionRef = useRef(null)
+  const theContactRef = useRef(null)
 
-  // Scroll To Gallery from NavigationBar
+  /* Scroll To Gallery from NavigationBar */
     const scrollToGallery = (e) => {
     e.preventDefault()
 
@@ -17,20 +18,31 @@ function App() {
     })
   }
 
-  // Scroll To Contact from NavigationBar
+  /* Scroll to Commission from NavigationBar */
+  const scrollToCommission = (e) => {
+    e.preventDefault()
+
+    window.scrollTo({
+      top: theCommissionRef.current.offsetTop,
+      behavior: "smooth"
+    })
+
+  }
+
+  /* Scroll To Contact from NavigationBar */
   const scrollToContact = (e) => {
     e.preventDefault()
     
     window.scrollTo({
-      top:TheContactRef.current.offsetTop,
+      top: theContactRef.current.offsetTop,
       behavior: "smooth"
     })
   }
 
   return (
     <div className="container">
-      <TheHeader scrollToGallery={scrollToGallery} scrollToContact={scrollToContact} />
-      <TheMain artGalleryRef={artGalleryRef} TheContactRef={TheContactRef} />
+      <TheHeader scrollToGallery={scrollToGallery} scrollToContact={scrollToContact} scrollToCommission={scrollToCommission} />
+      <TheMain artGalleryRef={artGalleryRef} theContactRef={theContactRef} theCommissionRef={theCommissionRef} />
       <TheFooter />
     </div>
   )

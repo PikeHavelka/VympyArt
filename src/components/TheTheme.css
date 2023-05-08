@@ -13,12 +13,21 @@
 .moon-icon {
   display: block;
   position: absolute;
-  transform: translate(-50%, -50%);
 
   height: 3rem;
   width: 3rem;
 
   color: var(--theme-icon);
+
+  transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    /* Safari, Chrome, iOS, Android */
+    -ms-transform: translate(-50%, -50%);
+    /* IE 10 */
+    -moz-transform: translate(-50%, -50%);
+    /* Firefox */
+    -o-transform: translate(-50%, -50%);
+    /* Opera */
 }
 
 .hide-btn {

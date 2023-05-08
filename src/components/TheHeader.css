@@ -10,6 +10,7 @@ header {
     /* Opera */
   justify-content: center;
   align-items: center;
+  
   flex-direction: column;
     -webkit-flex-direction: column;
     /* Safari, Chrome, iOS, Android */
@@ -17,8 +18,10 @@ header {
     /* IE 10 */
     -moz-flex-direction: column;
     /* Firefox */
+  
   min-height: 100vh;
   text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 .penguin-logo img {
@@ -28,13 +31,16 @@ header {
 
 .the-artist-name {
   margin-bottom: 3rem;
+  padding: .3rem;
+
+  text-shadow: 0 0 1px var(--font-body);
   text-transform: uppercase;
+
   font-size: clamp(.9rem, 2vw, 1.6rem);
+  color: var(--font-body);
+
   border-bottom: 1px solid var(--font-body);
   border-top: 1px solid var(--font-body);
-  padding: .3rem;
-  text-shadow: 0 0 1px var(--font-body);
-  color: var(--font-body);
 }
 
 .social-icons {
@@ -47,6 +53,7 @@ header {
     /* IE 10 */
     display: -webkit-flex;
     /* Opera */
+
   flex-direction: row;
     -webkit-flex-direction: row;
     /* Safari, Chrome, iOS, Android */
@@ -54,12 +61,13 @@ header {
     /* IE 10 */
     -moz-flex-direction: row;
     /* Firefox */
-  gap: 2rem;
+  gap: 1.7rem;
 }
 
 .one-icon img {
   max-width: 63%;
   height: auto;
+
   transition: all .2s ease-in-out;
     -webkit-transition: all .2s ease-in-out;
     /* Safari, Chrome, iOS, Android */
@@ -69,8 +77,10 @@ header {
     /* Opera */
 }
 
-.one-icon img:hover {
+.one-icon img:hover,
+.one-icon img:focus {
   cursor: pointer;
+
   transform: scale(1.1);
     -webkit-transform: scale(1.1);
     /* Safari, Chrome, iOS, Android */
@@ -78,6 +88,7 @@ header {
     /* Forefox */
 }
 
+/* Other screen sizes */
 @media screen and (max-width: 720px) {
   .social-icons {
     gap: 1rem;

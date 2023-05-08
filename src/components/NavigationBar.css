@@ -17,30 +17,36 @@ nav ul {
   list-style: none;
 }
 
-nav ul a {
+nav ul button {
   display: block;
+
   min-width: 7rem;
   height: 2rem;
+
   padding: 0 .5rem;
   
   text-transform: uppercase;
   text-decoration: none;
+  text-shadow: 0 0 .7px var(--shadows);
+
   font-size: .8rem;
   line-height: 1.7rem;
-  
   color: var(--font-body);
+  
   background-color: var(--background-body);
   border: 2px solid var(--borders);
-  text-shadow: 0 0 .7px var(--shadows);
   border-radius: 5px;
 }
 
-nav ul a:hover {
+nav ul button:hover,
+nav ul button:focus {
   color: var(--background-body);
+
   background-color: var(--font-body);
   border: 2px solid var(--shadows);
 }
 
+/* Other screen sizes */
 @media screen and (max-width: 500px){
   nav ul {
   flex-direction: column;

@@ -1,0 +1,30 @@
+.the-commission {
+  display: flex;
+    display: -webkit-box;
+    /* Safari, Chrome, iOS, Android */
+    display: -moz-box;
+    /* Firefox */
+    display: -ms-flexbox;
+    /* IE 10 */
+    display: -webkit-flex;
+    /* Opera */
+  justify-content: center;
+  align-items: center;
+  
+  flex-direction: column;
+    -webkit-flex-direction: column;
+    /* Safari, Chrome, iOS, Android */
+    -ms-flex-direction: column;
+    /* IE 10 */
+    -moz-flex-direction: column;
+    /* Firefox */
+
+  margin-top: 3rem;
+  padding-top: 2rem;
+
+  border-top: 1px solid var(--font-body);
+}
+
+.the-commission h1 {
+  margin-bottom: 2rem;
+}
