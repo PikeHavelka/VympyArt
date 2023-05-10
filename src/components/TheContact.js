@@ -1,23 +1,42 @@
 import "./TheContact.css"
-import { forwardRef, useState } from "react"
+import { forwardRef } from "react"
+import { useFormik } from "formik"
+import * as Yup from "yup"
 
 const TheContact = forwardRef ((props, ref) => {
-  const [userQuestion, setUserQuestion] = useState({ firstName: "", lastName: "", email: "", question: ""})
+  // const nameRegex = /^[a-zA-Z]+$/
+
+  /* Formik logics */
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      yourEmail: "",
+      yourQuestion: ""
+    },
+
+  /* Validate form */
+    validationSchema: Yup.object({
+      firstName: 
+        Yup.string().max(20, "First name can't be more than 20 characters.").required("First name is required!"),
+
+      lastName: 
+        Yup.string().max(20, "Last Name can't be more than 20 characters.").required("Last name is required!"),
+
+      yourEmail: 
+        Yup.string().required("Please fill the field!"),
+
+      yourQuestion: 
+        Yup.string().min(20, "Question must be more than 20 characters.").required("Please fill the field!")
+    }),
+
+  /* Submit form */
+    onSubmit: (values) => {
+      console.log(values)
+    }
+  })
+  console.log(formik.errors.firstName)
   
-  const handleForm = (e) => {
-    e.preventDefault()
-
-    console.log(userQuestion)
-    setUserQuestion({ firstName: "", lastName: "", email: "", question: "" })
-  }
-
-  const formChange = (e) => {
-    const name = e.target.name
-    const value = e.target.value
-
-    setUserQuestion({...userQuestion, [name]: value})
-  }
-
   return (
     <section className="the-contact" ref={ref}>
       <h1>Contact</h1>
@@ -28,38 +47,61 @@ const TheContact = forwardRef ((props, ref) => {
       <p>Please check first the COMISSION section before contacting me for all the information you need.</p>
     </div>
 
-      <form onSubmit={handleForm}>
-        <input 
+      <form onSubmit={formik.handleSubmit}>
+        <label 
+          htmlFor="firstName"
+          className={formik.errors.firstName ? "error-msg" : "firstName"}
+        >
+          {formik.errors.firstName ? formik.errors.firstName : "Fist Name"}
+        </label>
+
+        <input
+          className={formik.errors.firstName ? "error-msg-border" : "firstName"} 
+          id="firstName"
           type="text"
-          placeholder="First Name"
+          placeholder="John"
           name="firstName"
-          value={userQuestion.firstName}
-          onChange={(e) => formChange(e)}
+          value={formik.values.firstName}
+          onChange={formik.handleChange}
+          required
         />
 
+        <label htmlFor="lastName">
+          {formik.errors.lastName ? formik.errors.lastName : "Last Name"}
+        </label>
+
         <input
+          id="lastName"
           type="text"
-          placeholder="Last Name"
+          placeholder="Doe"
           name="lastName"
-          value={userQuestion.lastName}
-          onChange={(e) => formChange(e)}
+          value={formik.values.lastName}
+          onChange={formik.handleChange}
+          required
         />
 
+        <label htmlFor="yourEmail">
+          {formik.errors.yourEmail ? formik.errors.yourEmail : "Your Email"}
+        </label>
+
         <input
+          id="yourEmail"
           type="email"
-          placeholder="your email@"
-          name="email"
-          value={userQuestion.email}
-          onChange={(e) => formChange(e)}
+          placeholder="iwashere@gmail.com"
+          name="yourEmail"
+          value={formik.values.yourEmail}
+          onChange={formik.handleChange}
+          required
         />
 
         <textarea
           cols="30"
           rows="10"
-          name="question"
-          placeholder="Some text..."
-          value={userQuestion.question}
-          onChange={(e) => formChange(e)}
+          name="yourQuestion"
+          placeholder="Sorry for everything"
+          value={formik.values.yourQuestion}
+          onChange={formik.handleChange}
+          required
         >
         </textarea>
 

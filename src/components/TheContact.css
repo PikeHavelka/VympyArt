@@ -85,3 +85,11 @@ form input[type="submit"]:focus {
   color: var(--font-body);
   background-color: var(--background-body);
 }
+
+.error-msg {
+  color: red;
+}
+
+.error-msg-border {
+  border: 1px solid red;
+}
