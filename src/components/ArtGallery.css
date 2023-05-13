@@ -136,6 +136,7 @@
 
 .show-pop-image img {
   max-height: 100%;
+  /* max-width: 100%; */
   margin: 0 auto;
   image-rendering: crisp-edges;
 
@@ -173,7 +174,7 @@ img.clicked:focus {
   gap: .3rem;
 
   position: absolute;
-  bottom: .5%;
+  bottom: .8%;
 
   color: #000;
 }
@@ -181,7 +182,6 @@ img.clicked:focus {
 .icons-container > * {
   font-size: 2rem;
   cursor: pointer;
-  
 
   animation: iconsShow .9s linear;
     -webkit-animation: iconsShow .9s linear;

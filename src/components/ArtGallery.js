@@ -174,7 +174,7 @@ const ArtGallery = forwardRef ((props, ref) => {
       behavior: "smooth"
     })
   }
-
+  
   return (
     <section ref={ref} className="art-gallery">
       <div className="btn-category">
