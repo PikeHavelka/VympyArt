@@ -81,24 +81,28 @@ form textarea {
 
 form input[type="submit"] {
   padding: .3rem 1.2rem;
+
   border: none;
   border-radius: 5px;
+
   background-color: var(--font-body);
   color: var(--background-body);
 }
 
 form input[type="submit"]:hover,
 form input[type="submit"]:focus {
+  cursor: pointer;
   outline: 1px solid var(--font-body);
+  
   color: var(--font-body);
   background-color: var(--background-body);
 }
 
 /* Errors */
 .error-msg {
-  color: red;
+  color: var(--contact-wrong);
 }
 
 .error-msg-border {
-  border: 1px solid red;
+  border: 1px solid var(--contact-wrong);
 }
