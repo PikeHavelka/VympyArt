@@ -5,12 +5,23 @@ function TheTheme({ setShowThemeIcon, showThemeIcon }) {
 
   const lightTheme = () => {
     document.querySelector("body").setAttribute("data-theme", "light")
+    localStorage.setItem("data-theme", "light")
     setShowThemeIcon(false)
   }
 
   const darkTheme = () => {
     document.querySelector("body").setAttribute("data-theme", "dark")
+    localStorage.setItem("data-theme", "dark")
     setShowThemeIcon(true)
+  }
+
+  /* Remember theme */
+  if (localStorage.getItem("data-theme") === "dark") {
+    document.querySelector("body").setAttribute("data-theme", "dark")
+    setShowThemeIcon(true)
+  } else {
+    document.querySelector("body").setAttribute("data-theme", "light")
+    setShowThemeIcon(false)
   }
 
   return (
