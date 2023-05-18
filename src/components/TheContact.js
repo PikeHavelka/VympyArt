@@ -41,7 +41,7 @@ const TheContact = forwardRef((props, ref) => {
       console.log(values)
     },
   })
-  console.log(formik.values)
+
   return (
     <section className="the-contact" ref={ref}>
       <h1>Contact</h1>
