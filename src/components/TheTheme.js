@@ -1,4 +1,5 @@
 import "./TheTheme.css"
+import { useEffect } from "react"
 import { TiAdjustBrightness, TiAdjustContrast } from "react-icons/ti"
 
 function TheTheme({ setShowThemeIcon, showThemeIcon }) {
@@ -14,15 +15,18 @@ function TheTheme({ setShowThemeIcon, showThemeIcon }) {
     localStorage.setItem("data-theme", "dark")
     setShowThemeIcon(true)
   }
-
+  
   /* Remember theme */
-  if (localStorage.getItem("data-theme") === "dark") {
-    document.querySelector("body").setAttribute("data-theme", "dark")
-    setShowThemeIcon(true)
-  } else {
-    document.querySelector("body").setAttribute("data-theme", "light")
-    setShowThemeIcon(false)
-  }
+  useEffect(() => {
+    if (localStorage.getItem("data-theme") === "dark") {
+      document.querySelector("body").setAttribute("data-theme", "dark")
+      setShowThemeIcon(true)
+    } else {
+      document.querySelector("body").setAttribute("data-theme", "light")
+      setShowThemeIcon(false)
+    }
+  }, [setShowThemeIcon])
+
 
   return (
     <div className="theme-btns" title="Change Theme">

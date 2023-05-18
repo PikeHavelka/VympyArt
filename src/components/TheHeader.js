@@ -16,7 +16,7 @@ function TheHeader({ scrollToGallery, scrollToContact, scrollToCommission }) {
       <NavBar scrollToGallery={scrollToGallery} scrollToContact={scrollToContact} scrollToCommission={scrollToCommission} />
 
       <div className="penguin-logo">
-        {showThemeIcon ? <img src={penguinLogoLight} alt="" /> : <img src={penguinLogoDark} alt="" /> }
+        {showThemeIcon ? <img src={penguinLogoLight} alt="Light Penguin Logo" /> : <img src={penguinLogoDark} alt="Dark Pengion Logo" /> }
       </div>
 
       <div className="the-artist-name">

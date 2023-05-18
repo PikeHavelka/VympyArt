@@ -12,6 +12,7 @@ const TheContact = forwardRef((props, ref) => {
       lastName: "",
       yourEmail: "",
       message: "",
+      terms: false
     },
 
     /* Validate form (errors) */
@@ -28,17 +29,19 @@ const TheContact = forwardRef((props, ref) => {
         .email("Invalid email address"),
 
       message: Yup.string()
-        .min(20, "Question must be more than 20 characters."),
+        .min(20, "Message must be more than 20 characters.")
     }),
 
     /* Submit form */
     onSubmit: (values, { resetForm }) => {
-      alert("Your message was successfully sended.")
-      console.log(values)
+      values.terms = false
+      alert("Your message was successfully sent.")
       resetForm()
+      console.log("%c SENT", "color: red;")
+      console.log(values)
     },
   })
-
+  console.log(formik.values)
   return (
     <section className="the-contact" ref={ref}>
       <h1>Contact</h1>
@@ -119,15 +122,33 @@ const TheContact = forwardRef((props, ref) => {
           cols="30"
           rows="10"
           name="message"
-          placeholder="Bla, bla, bla..."
+          placeholder="Your message to artist VYMPY."
           value={formik.values.message}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           required
-        >
-        </textarea>
+        />
 
-        <input type="submit" value="Submit" />
+
+        <div className="personal-data-accept">
+          <input 
+            name="terms"
+            id="terms"
+            type="checkbox"
+            checked={formik.values.terms}
+            onChange={formik.handleChange}
+            required
+          />
+          
+          <label 
+            htmlFor="terms"
+            className={formik.errors.firstName && formik.errors.lastName && formik.errors.message ? "error-msg" : ""}
+          >
+            I agree to the use of my personal information.
+          </label>
+        </div>
+
+        <input type="submit" value="Submit message" />
       </form>
     </section>
   )
