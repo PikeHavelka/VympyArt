@@ -41,6 +41,7 @@ nav ul button {
 nav ul button:hover,
 nav ul button:focus {
   color: var(--background-body);
+  cursor: pointer;
 
   background-color: var(--font-body);
   border: 2px solid var(--shadows);

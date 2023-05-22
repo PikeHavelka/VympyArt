@@ -102,7 +102,16 @@ form input[type="submit"]:focus {
 
 .personal-data-accept {
   display: flex;
+    display: -webkit-box;
+      /* Safari, Chrome, iOS, Android */
+      display: -moz-box;
+      /* Firefox */
+      display: -ms-flexbox;
+      /* IE 10 */
+      display: -webkit-flex;
+      /* Opera */
   gap: .5rem;
+  
   letter-spacing: normal;
   padding: 0 1rem;
 }
@@ -120,6 +129,13 @@ form input[type="submit"]:focus {
 @media screen and (max-width: 480px){
   .personal-data-accept {
     flex-direction: column;
+      -webkit-flex-direction: column;
+        /* Safari, Chrome, iOS, Android */
+        -ms-flex-direction: column;
+        /* IE 10 */
+        -moz-flex-direction: column;
+        /* Firefox */
+
     text-align: center;
   }
 }

@@ -26,7 +26,6 @@ function App() {
       top: theCommissionRef.current.offsetTop,
       behavior: "smooth"
     })
-
   }
 
   /* Scroll To Contact from NavigationBar */
