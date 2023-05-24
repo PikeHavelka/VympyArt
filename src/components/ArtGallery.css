@@ -95,10 +95,18 @@
 
 .btn-category > button:nth-child(1):hover {
   transform: translateY(23%);
+    -webkit-transform: translateY(23%);
+      /* Safari, Chrome, iOS, Android */
+      -moz-transform: translateY(23%);
+      /* Firefox */
 }
 
 .btn-category > button:nth-child(3):hover {
   transform: translateY(-23%);
+    -webkit-transform: translateY(-23%);
+      /* Safari, Chrome, iOS, Android */
+      -moz-transform: translateY(-23%);
+      /* Firefox */
 }
 
 /* PopUpImg settings */
@@ -198,7 +206,7 @@ img.clicked:hover {
   margin: 1rem 0;
 }
 
-/* BTN section clicked */
+/* Btn active when clicked */
 .active-top-btn {
   min-height: 65%;
   transform: translateY(23%);
@@ -248,11 +256,19 @@ img.clicked:hover {
   0% {
     opacity: 0;
     transform: translateY(100px);
+      -webkit-transform: translateY(100px);
+        /* Safari, Chrome, iOS, Android */
+        -moz-transform: translateY(100px);
+        /* Firefox */
   }
 
   100% {
     opacity: 1;
     transform: translateY(0);
+      -webkit-transform: translateY(0);
+        /* Safari, Chrome, iOS, Android */
+        -moz-transform: translateY(0);
+        /* Firefox */
   }
 }
 
@@ -268,12 +284,21 @@ img.clicked:hover {
 
   .btn-category > button:nth-child(1):hover {
     transform: translateY(20%);
+      -webkit-transform: translateY(20%);
+        /* Safari, Chrome, iOS, Android */
+        -moz-transform: translateY(20%);
+        /* Firefox */
   }
 
   .btn-category > button:nth-child(3):hover {
     transform: translateY(-20%);
+      -webkit-transform: translateY(-20%);
+        /* Safari, Chrome, iOS, Android */
+        -moz-transform: translateY(-20%);
+        /* Firefox */
   }
 
+  /* Btn active when clicked */
   .active-top-btn {
     min-height: 50%;
   }
@@ -302,12 +327,21 @@ img.clicked:hover {
 
   .btn-category > button:nth-child(1):hover {
     transform: translateY(20%);
+      -webkit-transform: translateY(20%);
+        /* Safari, Chrome, iOS, Android */
+        -moz-transform: translateY(20%);
+        /* Firefox */
   }
 
   .btn-category > button:nth-child(3):hover {
     transform: translateY(-20%);
+      -webkit-transform: translateY(-20%);
+        /* Safari, Chrome, iOS, Android */
+        -moz-transform: translateY(-20%);
+        /* Firefox */
   }
 
+  /* Btn active when clicked */
   .active-top-btn {
     min-height: 40%;
   }
@@ -336,12 +370,21 @@ img.clicked:hover {
 
   .btn-category > button:nth-child(1):hover {
     transform: translateY(10%);
+      -webkit-transform: translateY(10%);
+        /* Safari, Chrome, iOS, Android */
+        -moz-transform: translateY(10%);
+        /* Firefox */
   }
 
   .btn-category > button:nth-child(3):hover {
     transform: translateY(-10%);
+      -webkit-transform: translateY(-10%);
+        /* Safari, Chrome, iOS, Android */
+        -moz-transform: translateY(-10%);
+        /* Firefox */
   }
 
+  /* Btn active when clicked */
   .active-top-btn {
     min-height: 35%;
   }
