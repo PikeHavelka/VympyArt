@@ -38,8 +38,7 @@ nav ul button {
   border-radius: 5px;
 }
 
-nav ul button:hover,
-nav ul button:focus {
+nav ul button:hover {
   color: var(--background-body);
   cursor: pointer;
 

@@ -34,9 +34,10 @@ const TheContact = forwardRef((props, ref) => {
 
     /* Submit form */
     onSubmit: (values, { resetForm }) => {
-      values.terms = false
-      alert("Your message was successfully sent.")
       resetForm()
+
+      alert("Your message was successfully sent.")
+
       console.log("%c SENT", "color: red;")
       console.log(values)
     },

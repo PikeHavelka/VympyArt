@@ -32,32 +32,47 @@ const ArtGallery = forwardRef ((props, ref) => {
   const [show, setShow] = useState(false)
   const [popImg, setPopImg] = useState()
   const [imageIndex, setImageIndex] = useState()
+
   const refSection = useRef()
+
+  const [topBtn, setTopBtn] = useState(false)
+  const [midBtn, setMidBtn] = useState(false)
+  const [botBtn, setBotBtn] = useState(false)
 
   /* Reducer settings */
   const ACTIONS = {
     ILLUSTRATIONS: "Illustrations",
     ARTWORKS: "3D Artworks",
-    ANIMATIONS: "Animations"
+    ANIMATIONS: "Animations",
+    RESET: "Reset"
   }
 
   const defaultState = {
-    notifications: ""
+    notifications: "",
+    show: false
   }
 
   const reducer = (state, action) => {
     switch (action.type) {
       case ACTIONS.ILLUSTRATIONS:
         return {
-          notifications: ACTIONS.ILLUSTRATIONS
+          notifications: ACTIONS.ILLUSTRATIONS,
+          show: true
         }
       case ACTIONS.ARTWORKS:
         return {
-          notifications: ACTIONS.ARTWORKS
+          notifications: ACTIONS.ARTWORKS,
+          show: true
         }
       case ACTIONS.ANIMATIONS:
         return {
-          notifications: ACTIONS.ANIMATIONS
+          notifications: ACTIONS.ANIMATIONS,
+          show: true
+        }
+      case ACTIONS.RESET:
+        return {
+          notifications: "",
+          show: false
         }
       default:
         return state
@@ -65,12 +80,6 @@ const ArtGallery = forwardRef ((props, ref) => {
   }
 
   const [state, dispatch] = useReducer(reducer, defaultState)
-  
-  const handleComponent = (componentType) => {
-    return () => {
-      dispatch({ type: componentType })
-    }
-  }
 
   /* Open popUpImg */
   const popUpImage = (image, oneImageIndex) => {
@@ -168,32 +177,76 @@ const ArtGallery = forwardRef ((props, ref) => {
   }, [imageIndex, previousImage, nextImage])
 
   /* Scroll down to section when click */
-  const goToSection = () => {
-    window.scrollTo({
-      top: refSection.current.offsetTop,
-      behavior: "smooth"
-    })
+  const goToSection = (componentType) => {
+    if (state.show === false) {
+      window.scrollTo({
+        top: refSection.current.offsetTop,
+        behavior: "smooth"
+      })
+    } else if (state.show === true && state.notifications !== componentType) {
+      window.scrollTo({
+        top: refSection.current.offsetTop,
+        behavior: "smooth"
+      })
+    }
   }
-  
+
+  /* Open and close section */
+  const handleActions = (componentType) => {
+    if (state.show === true && state.notifications === componentType) {
+        dispatch({ type: ACTIONS.RESET })
+    } else if (state.show === true && state.notifications !== componentType) {
+        dispatch({ type: componentType })
+    } else {
+        dispatch({ type: componentType })
+    }
+  }
+
+  /* Active BTN when clicked */
+  const activeclassBtn = (componentType) => {
+    if (componentType === ACTIONS.ILLUSTRATIONS) {
+      setTopBtn(!topBtn)
+      setBotBtn(false)
+      setMidBtn(false)
+    } else if (componentType === ACTIONS.ARTWORKS) {
+      setMidBtn(!midBtn)
+      setBotBtn(false)
+      setTopBtn(false)
+    } else if (componentType === ACTIONS.ANIMATIONS) {
+      setBotBtn(!botBtn)
+      setMidBtn(false)
+      setTopBtn(false)
+    }
+  }
+
   return (
     <section ref={ref} className="art-gallery">
       <div className="btn-category">
-        <button onClick={() =>
-          {handleComponent(ACTIONS.ILLUSTRATIONS)();
-          goToSection()}}>
-            {ACTIONS.ILLUSTRATIONS}
+        <button
+          className={topBtn ? "active-top-btn" : ""} 
+          onClick={() => {
+            activeclassBtn(ACTIONS.ILLUSTRATIONS);
+            handleActions(ACTIONS.ILLUSTRATIONS);
+            goToSection(ACTIONS.ILLUSTRATIONS)}}>
+              {ACTIONS.ILLUSTRATIONS}
         </button>
 
-        <button onClick={() => {
-          handleComponent(ACTIONS.ARTWORKS)();
-          goToSection()}}>
-            {ACTIONS.ARTWORKS}
+        <button 
+          className={midBtn ? "active-mid-btn" : ""}
+          onClick={() => {
+            activeclassBtn(ACTIONS.ARTWORKS);
+            handleActions(ACTIONS.ARTWORKS);
+            goToSection(ACTIONS.ARTWORKS)}}>
+              {ACTIONS.ARTWORKS}
         </button>
 
-        <button onClick={() =>
-          {handleComponent(ACTIONS.ANIMATIONS)();
-          goToSection()}}>
-            {ACTIONS.ANIMATIONS}
+        <button 
+          className={botBtn ? "active-bot-btn" : ""}
+          onClick={() => {
+            activeclassBtn(ACTIONS.ANIMATIONS);
+            handleActions(ACTIONS.ANIMATIONS);
+            goToSection(ACTIONS.ANIMATIONS)}}>
+              {ACTIONS.ANIMATIONS}
         </button>
       </div>
 
@@ -213,11 +266,20 @@ const ArtGallery = forwardRef ((props, ref) => {
       </div>
 
       <div className="sections">
-        {state.notifications === ACTIONS.ILLUSTRATIONS && <ArtGalleryIllustrations illustrationsVideos={illustrationsVideos} illustrationsImages={illustrationsImages} popUpImage={popUpImage} />}
+        {state.notifications === ACTIONS.ILLUSTRATIONS && <ArtGalleryIllustrations
+        illustrationsVideos={illustrationsVideos}
+        illustrationsImages={illustrationsImages}
+        popUpImage={popUpImage} />}
 
-        {state.notifications === ACTIONS.ARTWORKS && <ArtGalleryArtworks artworksVideos={artworksVideos} artworksImages={artworksImages} popUpImage={popUpImage} />}
+        {state.notifications === ACTIONS.ARTWORKS && <ArtGalleryArtworks
+        artworksVideos={artworksVideos}
+        artworksImages={artworksImages}
+        popUpImage={popUpImage} />}
 
-        {state.notifications === ACTIONS.ANIMATIONS && <ArtGalleryAnimations animationsVideos={animationsVideos} animationsImages={animationsImages} popUpImage={popUpImage} />}
+        {state.notifications === ACTIONS.ANIMATIONS && <ArtGalleryAnimations
+        animationsVideos={animationsVideos}
+        animationsImages={animationsImages}
+        popUpImage={popUpImage} />}
       </div>
     </section>
   )

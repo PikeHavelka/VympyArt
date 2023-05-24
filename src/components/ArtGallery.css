@@ -89,19 +89,16 @@
   background: url("../assets/icons/vympyAnimations.jpg") 0 -200px no-repeat;
 }
 
-.btn-category > *:hover,
-.btn-category > *:focus {
-  min-height: 75%
+.btn-category > *:hover {
+  min-height: 65%
 }
 
-.btn-category > button:nth-child(1):hover,
-.btn-category > button:nth-child(1):focus {
-  transform: translateY(20%);
+.btn-category > button:nth-child(1):hover {
+  transform: translateY(23%);
 }
 
-.btn-category > button:nth-child(3):hover,
-.btn-category > button:nth-child(3):focus {
-  transform: translateY(-20%);
+.btn-category > button:nth-child(3):hover {
+  transform: translateY(-23%);
 }
 
 /* PopUpImg settings */
@@ -147,8 +144,7 @@
     /* Firefox */
 }
 
-img.clicked:hover,
-img.clicked:focus {
+img.clicked:hover {
   opacity: 1;
 
   transition: all .0001s linear;
@@ -190,8 +186,7 @@ img.clicked:focus {
     /* Firefox */
 }
 
-.icons-container > *:hover,
-.icons-container > *:focus {
+.icons-container > *:hover {
   opacity: .6;
 }
 
@@ -201,6 +196,29 @@ img.clicked:focus {
 
 .notification h1 {
   margin: 1rem 0;
+}
+
+/* BTN section clicked */
+.active-top-btn {
+  min-height: 65%;
+  transform: translateY(23%);
+    -webkit-transform: translateY(23%);
+      /* Safari, Chrome, iOS, Android */
+      -moz-transform: translateY(23%);
+      /* Firefox */
+}
+
+.active-mid-btn {
+  min-height: 65%;
+}
+
+.active-bot-btn {
+  min-height: 65%;
+  transform: translateY(-23%);
+    -webkit-transform: translateY(-23%);
+      /* Safari, Chrome, iOS, Android */
+      -moz-transform: translateY(-23%);
+      /* Firefox */
 }
 
 /* Animations */
@@ -244,19 +262,28 @@ img.clicked:focus {
     min-height: 36%;
   }
 
-  .btn-category > *:hover,
-  .btn-category > *:focus {
-    min-height: 45%
+  .btn-category > *:hover {
+    min-height: 50%
   }
 
-  .btn-category > button:nth-child(1):hover,
-  .btn-category > button:nth-child(1):focus {
+  .btn-category > button:nth-child(1):hover {
     transform: translateY(20%);
   }
 
-  .btn-category > button:nth-child(3):hover,
-  .btn-category > button:nth-child(3):focus {
+  .btn-category > button:nth-child(3):hover {
     transform: translateY(-20%);
+  }
+
+  .active-top-btn {
+    min-height: 50%;
+  }
+
+  .active-mid-btn {
+    min-height: 50%;
+  }
+
+  .active-bot-btn {
+    min-height: 50%;
   }
 }
 
@@ -269,19 +296,28 @@ img.clicked:focus {
     min-height: 24%;
   }
 
-  .btn-category > *:hover,
-  .btn-category > *:focus {
-    min-height: 37%
+  .btn-category > *:hover {
+    min-height: 40%
   }
 
-  .btn-category > button:nth-child(1):hover,
-  .btn-category > button:nth-child(1):focus {
+  .btn-category > button:nth-child(1):hover {
     transform: translateY(20%);
   }
 
-  .btn-category > button:nth-child(3):hover,
-  .btn-category > button:nth-child(3):focus {
+  .btn-category > button:nth-child(3):hover {
     transform: translateY(-20%);
+  }
+
+  .active-top-btn {
+    min-height: 40%;
+  }
+
+  .active-mid-btn {
+    min-height: 40%;
+  }
+
+  .active-bot-btn {
+    min-height: 40%;
   }
 }
 
@@ -294,18 +330,27 @@ img.clicked:focus {
     min-height: 25%;
 }
 
-  .btn-category > *:hover,
-  .btn-category > *:focus {
-    min-height: 30%
+  .btn-category > *:hover {
+    min-height: 35%
   }
 
-  .btn-category > button:nth-child(1):hover,
-  .btn-category > button:nth-child(1):focus {
+  .btn-category > button:nth-child(1):hover {
     transform: translateY(10%);
   }
 
-  .btn-category > button:nth-child(3):hover,
-  .btn-category > button:nth-child(3):focus {
+  .btn-category > button:nth-child(3):hover {
     transform: translateY(-10%);
+  }
+
+  .active-top-btn {
+    min-height: 35%;
+  }
+
+  .active-mid-btn {
+    min-height: 35%;
+  }
+
+  .active-bot-btn {
+    min-height: 35%;
   }
 }
