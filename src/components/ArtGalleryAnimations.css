@@ -77,8 +77,7 @@
     /* Opera */
 }
 
-.one-image-animation img:hover,
-.one-image-animation img:focus {
+.one-image-animation img:hover {
   transform: scale(1.15);
 }
 

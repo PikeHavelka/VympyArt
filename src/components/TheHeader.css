@@ -77,8 +77,7 @@ header {
     /* Opera */
 }
 
-.one-icon img:hover,
-.one-icon img:focus {
+.one-icon img:hover {
   cursor: pointer;
 
   transform: scale(1.1);

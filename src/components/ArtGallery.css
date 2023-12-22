@@ -58,7 +58,7 @@
 
   color: black;
   letter-spacing: 2px;
-  font-size: 5vh;
+  font-size: clamp(4rem, 5vh, 7rem);
   font-family: 'Lora', serif;
   
   text-transform: uppercase;

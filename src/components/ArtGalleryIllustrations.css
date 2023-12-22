@@ -31,8 +31,7 @@
     /* Opera */
 }
 
-.one-image-illustration img:hover, 
-.one-image-illustration img:focus {
+.one-image-illustration img:hover {
   cursor: pointer;
   opacity: .4;
 }

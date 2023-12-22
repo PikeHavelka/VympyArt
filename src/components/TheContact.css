@@ -79,6 +79,7 @@ form textarea {
   min-width: 55%;
   border-radius: 5px;
   border: none;
+  font-size: larger;
 }
 
 form input[type="submit"] {

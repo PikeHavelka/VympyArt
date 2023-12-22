@@ -75,8 +75,7 @@
     /* Opera */
 }
 
-.one-image-artwork img:hover,
-.one-image-artwork img:focus {
+.one-image-artwork img:hover {
   cursor: pointer;
   opacity: .4;
 }

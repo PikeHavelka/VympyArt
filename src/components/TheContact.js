@@ -2,6 +2,7 @@ import "./TheContact.css"
 import { forwardRef } from "react"
 import { useFormik } from "formik"
 import * as Yup from "yup"
+import axios from "axios"
 
 const TheContact = forwardRef((props, ref) => {
 
@@ -35,11 +36,16 @@ const TheContact = forwardRef((props, ref) => {
     /* Submit form */
     onSubmit: (values, { resetForm }) => {
       resetForm()
-
-      alert("Your message was successfully sent.")
-
-      console.log("%c SENT", "color: red;")
-      console.log(values)
+      
+      const msg = {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.yourEmail,
+        body: values.message
+      }
+      
+      axios.post("https://dev-null.xyz/api/send_email", msg)
+        .then(() => alert("Your message was successfully sent."))
     },
   })
 
@@ -129,7 +135,6 @@ const TheContact = forwardRef((props, ref) => {
           onBlur={formik.handleBlur}
           required
         />
-
 
         <div className="personal-data-accept">
           <input 
